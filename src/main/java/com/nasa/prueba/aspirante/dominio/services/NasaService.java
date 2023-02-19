@@ -37,21 +37,28 @@ public class NasaService implements INasa {
 
     @Override
     public Long getInfoAnSaveFromNasaApi(String search) {
-        NasaDto nasaDto=pruebaNasaApiClient.getInfo(search);
+
+        //Atomic variable by parallel use
         AtomicInteger counter= new AtomicInteger(0);
         try{
-        nasaDto.getCollection().getItems().stream().parallel().forEach(item ->{
+            //Get info from NASA api
+            NasaDto nasaDto=pruebaNasaApiClient.getInfo(search);
+            nasaDto.getCollection().getItems().stream().parallel().forEach(item ->{
+                                                                //creating a new Entity PruebaEntity
                                                                 PruebaEntity pruebaEntity=new PruebaEntity();
                                                                 pruebaEntity.setHref(item.getHref());
                                                                 pruebaEntity.setCenter(item.getData().stream().findFirst().get().getCenter());
                                                                 pruebaEntity.setTitle(item.getData().stream().findFirst().get().getTitle());
                                                                 pruebaEntity.setNasa_id(item.getData().stream().findFirst().get().getNasa_id());
+                                                                //save the entity
                                                                 if(pruebaInterfazRepository.save(pruebaEntity).getId()>0)
                                                                     counter.addAndGet(1);
-        } );
+                                                                } );
         }catch (Exception exp){
+            //catching the exception
             log.error(exp.getMessage());
         }
+        //return number of saved items
         return Long.valueOf( counter.get());
     }
 

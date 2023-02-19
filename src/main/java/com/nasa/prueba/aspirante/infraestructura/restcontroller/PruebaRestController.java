@@ -20,7 +20,7 @@ public class PruebaRestController {
         return ResponseEntity.ok(nasaService.getAllPruebaDTO());
     }
 
-    /*** Endpoints was comented
+    /*** Endpoints were comented
     @GetMapping("/info")
     public ResponseEntity<NasaDto> getInfoFromNasaApi(@RequestParam(name="search") String search){
         NasaDto nasainfo=nasaService.getInfoFromNasaApi( search);

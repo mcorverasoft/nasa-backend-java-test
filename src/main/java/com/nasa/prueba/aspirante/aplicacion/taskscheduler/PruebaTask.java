@@ -17,9 +17,11 @@ public class PruebaTask {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     @Autowired
     private INasa nasaService;
-    @Scheduled(fixedRate = 60 * 1000)
+    @Scheduled(fixedRate = 60 * 1000)//each minute
     public void getAnSaveInfoFromNasaApi() {
+        //Call the getInfoAnSaveFromNasaApi method of our service
         Long registers=nasaService.getInfoAnSaveFromNasaApi("apollo 2011");
+        //Print on Log the execution info
         log.info("Execution at {} - {} items saved from NasaApi", dateFormat.format(new Date()),registers);
     }
 }
