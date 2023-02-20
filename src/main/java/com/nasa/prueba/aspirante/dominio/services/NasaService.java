@@ -10,9 +10,12 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -29,8 +32,10 @@ public class NasaService implements INasa {
 
 
     @Override
-    public List<PruebaDto> getAllPruebaDTO() {
-        return pruebaInterfazRepository.findAll()
+    public List<PruebaDto> getAllPruebaDTO(int page, int size) {
+        Pageable paging = PageRequest.of(page, size, Sort.by("id"));
+        Page<PruebaEntity> pruebaEntityPage =pruebaInterfazRepository.findAll(paging);
+        return pruebaEntityPage.getContent()
                 .stream()
                 .map(pruebaEntity -> modelMapper.map(pruebaEntity,PruebaDto.class)).collect(Collectors.toList());
     }

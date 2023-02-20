@@ -7,7 +7,7 @@ import com.nasa.prueba.aspirante.dominio.entities.PruebaEntity;
 import java.util.List;
 
 public interface INasa {
-    List<PruebaDto> getAllPruebaDTO();
+    List<PruebaDto> getAllPruebaDTO(int page, int size);
     Long getInfoAnSaveFromNasaApi(String search);
 
 }

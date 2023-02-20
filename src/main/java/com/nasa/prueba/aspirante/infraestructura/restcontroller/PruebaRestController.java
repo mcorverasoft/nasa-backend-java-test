@@ -16,8 +16,9 @@ public class PruebaRestController {
     @Autowired
     private NasaService nasaService;
     @GetMapping
-    public ResponseEntity<List<PruebaDto>> getAllNasa() {
-        return ResponseEntity.ok(nasaService.getAllPruebaDTO());
+    public @ResponseBody ResponseEntity<List<PruebaDto>> getAllNasa(@RequestParam(defaultValue = "0", required = false) int page,
+                                                                    @RequestParam(defaultValue = "100", required = false) int size) {
+        return ResponseEntity.ok(nasaService.getAllPruebaDTO(page,size));
     }
 
     /*** Endpoints were comented
