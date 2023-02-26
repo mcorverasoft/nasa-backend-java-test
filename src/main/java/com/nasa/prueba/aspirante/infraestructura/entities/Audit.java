@@ -1,4 +1,4 @@
-package com.nasa.prueba.aspirante.dominio.entities;
+package com.nasa.prueba.aspirante.infraestructura.entities;
 
 
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.nasa.prueba.aspirante.dominio.dto.nasadto;
+package com.nasa.prueba.aspirante.aplicacion.dto.nasadto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,8 +1,6 @@
 package com.nasa.prueba.aspirante.dominio.interfaces;
 
-import com.nasa.prueba.aspirante.dominio.dto.nasadto.NasaDto;
-import com.nasa.prueba.aspirante.dominio.dto.PruebaDto;
-import com.nasa.prueba.aspirante.dominio.entities.PruebaEntity;
+import com.nasa.prueba.aspirante.aplicacion.dto.PruebaDto;
 
 import java.util.List;
 

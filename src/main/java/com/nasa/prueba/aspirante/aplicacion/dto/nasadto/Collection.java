@@ -1,4 +1,4 @@
-package com.nasa.prueba.aspirante.dominio.dto.nasadto;
+package com.nasa.prueba.aspirante.aplicacion.dto.nasadto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +9,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Item {
+public class Collection {
+    private String version;
     private String href;
-    private List<Datum> data;
-    private List<Link> links;
+    private List<Item> items;
+    private Metadata metadata;
 }

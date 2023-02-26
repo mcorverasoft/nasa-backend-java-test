@@ -1,9 +1,9 @@
 package com.nasa.prueba.aspirante.dominio.services;
 
 import com.nasa.prueba.aspirante.dominio.interfaces.INasa;
-import com.nasa.prueba.aspirante.dominio.dto.nasadto.NasaDto;
-import com.nasa.prueba.aspirante.dominio.dto.PruebaDto;
-import com.nasa.prueba.aspirante.dominio.entities.PruebaEntity;
+import com.nasa.prueba.aspirante.aplicacion.dto.nasadto.NasaDto;
+import com.nasa.prueba.aspirante.aplicacion.dto.PruebaDto;
+import com.nasa.prueba.aspirante.infraestructura.entities.PruebaEntity;
 import com.nasa.prueba.aspirante.infraestructura.clientrest.PruebaClienteRest;
 import com.nasa.prueba.aspirante.infraestructura.repository.PruebaInterfaz;
 import org.modelmapper.ModelMapper;

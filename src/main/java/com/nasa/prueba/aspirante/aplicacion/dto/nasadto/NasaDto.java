@@ -1,4 +1,4 @@
-package com.nasa.prueba.aspirante.dominio.dto.nasadto;
+package com.nasa.prueba.aspirante.aplicacion.dto.nasadto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Metadata {
-    private int total_hits;
+public class NasaDto {
+private Collection collection;
+
 }
+
